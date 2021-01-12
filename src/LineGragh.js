@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 
+
 const options = {
   legend: {
     display: false,
@@ -34,7 +35,7 @@ const options = {
     yAxes: [
       {
         gridLines: {
-          display: false,
+          display: true,
         },
         ticks: {
           // Include a dollar sign in the ticks
@@ -47,7 +48,7 @@ const options = {
   },
 };
 
-const buildChartData = (data, casesType) => {
+const buildChartData = (data, casesType="cases") => {
   let chartData = [];
   let lastDataPoint;
   for (let date in data.cases) {
@@ -63,7 +64,7 @@ const buildChartData = (data, casesType) => {
   return chartData;
 };
 
-function LineGraph({ casesType }) {
+function LineGraph({ casesType = "cases", ...props }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -76,7 +77,6 @@ function LineGraph({ casesType }) {
           let chartData = buildChartData(data, casesType);
           setData(chartData);
           console.log(chartData);
-          // buildChart(chartData);
         });
     };
 
@@ -84,14 +84,14 @@ function LineGraph({ casesType }) {
   }, [casesType]);
 
   return (
-    <div>
+    <div className={props.className}>
       {data?.length > 0 && (
         <Line
           data={{
             datasets: [
               {
-                backgroundColor: "rgba(204, 16, 52, 0.5)",
-                borderColor: "#CC1034",
+                backgroundColor: "rgb(51, 51, 51, 0.7)",
+                borderColor: "#333333",
                 data: data,
               },
             ],

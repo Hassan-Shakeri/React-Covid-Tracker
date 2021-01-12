@@ -1,33 +1,50 @@
 .infoBox {
-  flex: 1;
-}
-
+    flex: 1;
+    cursor: pointer;
+  }
+  
 .infoBox:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .infoBox--selected {
-  border-top: 10px solid greenyellow;
+  border-top: 10px solid #A7DF68;
+}
+
+.infoBox__title {
+  font-size: 1.9rem;
+  font-size: x-large;
+  margin-bottom: 0.1rem !important;
 }
 
 .infoBox--red {
-  border-color: red;
+  color: #ff0000;
+  border-color: #ff0000;
+}
+
+.infoBox--black {
+  color: #9a9895;
+  border-color: #9a9895;
+}
+
+.infoBox--green {
+  color: #A7DF68;
 }
 
 .infoBox__cases--green {
-  color: lightgreen !important;
+  color: #A7DF68 !important;
 }
 
+
+
 .infoBox__cases {
-  color: #cc1034;
   font-weight: 600;
   font-size: 1.75rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .infoBox__total {
   color: #6c757d;
   font-weight: 700 !important;
-  font-size: 0.8rem !important;
-  margin-top: 15px !important;
+  font-size: 1rem !important;
 }
